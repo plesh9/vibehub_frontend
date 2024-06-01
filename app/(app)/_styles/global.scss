@@ -1,0 +1,66 @@
+@import '/app/_shared/const/variables';
+@import './root';
+@import './null';
+@import './ui';
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+
+    &-thumb {
+        background-color: $green500;
+        border-radius: $point * 3;
+    }
+
+    &-track {
+        background-color: transparent;
+    }
+}
+
+// Backgrounds
+.background_white100 {
+    background-color: $white100;
+}
+
+// Black
+.background_black45p {
+    background-color: $black45p;
+}
+
+.background_black100 {
+    background-color: $black100;
+}
+
+// Blue
+.background_blue500 {
+    background-color: $blue500;
+}
+
+// Green
+.background_green500 {
+    background-color: $green500;
+}
+
+// Colors
+.color_white100 {
+    color: $white100;
+}
+
+// Black
+.color_black45p {
+    color: $black45p;
+}
+
+.color_black100 {
+    color: $black100;
+}
+
+// Blue
+.color_blue500 {
+    color: $blue500;
+}
+
+// Green
+.color_green500 {
+    color: $green500;
+}

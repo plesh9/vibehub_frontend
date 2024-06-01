@@ -1,0 +1,49 @@
+@import '/app/_shared/const/variables';
+
+.fade {
+    &.entered {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &.entering {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.exiting {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.exited {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.slideUp {
+    &.entered {
+        transform: translateY(25%);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &.entering {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.exiting {
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.exited {
+        transform: translateY(25%);
+        visibility: hidden;
+        opacity: 0;
+    }
+}

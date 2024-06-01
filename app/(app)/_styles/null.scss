@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    text-align: inherit;
+    overflow-wrap: anywhere;
+    vertical-align: baseline;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-width: 320px;
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: $white100;
+    font-size: $fontSize;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: $lineHeight;
+    color: $black100;
+    text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+textarea {
+    resize: none;
+    min-height: $point * 25;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: $point * 2.25 $point * 3.5;
+    background-color: $white100;
+
+    // border: 1px solid $blue500;
+
+    border-radius: $point * 2;
+    outline: none;
+    box-shadow: 0 1px 2px 0 #1018280d;
+
+    &::placeholder {
+        // color: $blue80p;
+    }
+
+    &:focus {
+        // outline: $point solid $violet100;
+    }
+
+    &.error_field {
+        // background-color: $red50;
+        // border: 1px solid $red500;
+        // color: $red500;
+
+        // &::placeholder {
+        //     color: $red500;
+        // }
+    }
+}
+
+input {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        margin: 0;
+        appearance: none;
+    }
+
+    &[type='number'] {
+        appearance: textfield;
+    }
+
+    // &:-webkit-autofill,
+    // &:-webkit-autofill:hover,
+    // &:-webkit-autofill:focus,
+    // &:-webkit-autofill:active {
+    //     border: 1px solid $orange500 !important;
+    //     box-shadow: 0 0 0 1000px $white100 inset !important;
+    //     -webkit-text-fill-color: $blue500 !important;
+    // }
+}
+
+button {
+    cursor: pointer;
+    background-color: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+    content: none;
+}
+
+svg {
+    display: block;
+}
+
+g * {
+    &:focus {
+        outline: none;
+    }
+}
+
+:disabled {
+    cursor: initial;
+}

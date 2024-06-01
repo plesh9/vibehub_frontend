@@ -1,24 +1,48 @@
 {
-  "name": "vibehub_frontend",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.3"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3"
-  }
+    "name": "vibehub_frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "pnpm format && pnpm stylelint && next lint",
+        "lint:fix": "pnpm format:fix && pnpm stylelint:fix && next lint --fix",
+        "format": "prettier --check --ignore-path .gitignore .",
+        "format:fix": "prettier --write --ignore-path .gitignore .",
+        "stylelint": "npx stylelint '**/*.{css,scss}'",
+        "stylelint:fix": "npx stylelint '**/*.{css,scss}' --fix"
+    },
+    "dependencies": {
+        "next": "14.1.4",
+        "next-intl": "^3.11.1",
+        "nextjs-toploader": "^1.6.12",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-hook-form": "^7.51.3",
+        "zustand": "^4.5.2",
+        "js-cookie": "^3.0.5"
+    },
+    "devDependencies": {
+        "@types/js-cookie": "^3.0.6",
+        "@types/node": "^20.12.7",
+        "@types/react": "^18.2.78",
+        "@types/react-dom": "^18.2.25",
+        "@typescript-eslint/eslint-plugin": "^6.21.0",
+        "eslint": "^8.57.0",
+        "eslint-config-next": "^14.2.1",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-prettier": "^5.1.3",
+        "eslint-plugin-react": "^7.34.1",
+        "prettier": "^3.2.5",
+        "sass": "^1.75.0",
+        "stylelint": "^16.3.1",
+        "stylelint-config-clean-order": "^5.4.2",
+        "stylelint-config-standard-scss": "^13.1.0",
+        "stylelint-order": "^6.0.4",
+        "stylelint-prettier": "^5.0.0",
+        "stylelint-webpack-plugin": "^5.0.0",
+        "typescript": "^5.4.5"
+    }
 }
