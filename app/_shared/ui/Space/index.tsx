@@ -6,16 +6,18 @@ import classNamesResolver, { uiClasses } from '@shared/lib/uiClasses'
 import classnames from '../../lib/classnames'
 
 type AdditionalFPropsType<T extends UiComponentType | ComponentType<any>> = T extends keyof JSX.IntrinsicElements ? JSX.IntrinsicElements[T] : ComponentPropsWithoutRef<T>
-export type Props<T extends UiComponentType | ComponentType<any>> = UiType<
+export type SpacePropsType = UiType<
     BaseUiType,
     {
-        as?: UiComponentType
         children?: ReactNode
         className?: string
         color?: ColorsType
         backgroundColor?: ColorsType
     }
-> &
+>
+export type Props<T extends UiComponentType | ComponentType<any>> = {
+    as?: UiComponentType
+} & SpacePropsType &
     AdditionalFPropsType<T>
 
 const Space = <T extends UiComponentType | ComponentType<any>>({ as: Component = 'div', children, className, color, backgroundColor, ...restProps }: Props<T>): JSX.Element => {

@@ -9,6 +9,9 @@ export const colors = {
     blue500: 'blue500',
 
     // Green
-    green500: 'green500'
+    green500: 'green500',
+
+    // Red
+    red500: 'red500'
 } as const
 export type ColorsType = (typeof colors)[keyof typeof colors]

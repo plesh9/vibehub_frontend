@@ -5,7 +5,7 @@ import s from './PageLoader.module.scss'
 const PageLoader: FC = () => {
     return (
         <div className={s.main}>
-            <Spinner size='24' color='green500' />
+            <Spinner size='24' color='blue500' />
         </div>
     )
 }

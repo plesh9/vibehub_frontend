@@ -1,0 +1,96 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    @include flexHorizontalSpace(2);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    font-weight: 500;
+    line-height: 100%;
+    white-space: nowrap;
+    transition: all $transition;
+
+    &.wide {
+        width: 100%;
+    }
+}
+
+// Sizes
+.large {
+    height: $point * 11.5;
+    padding: 3 * $point 5 * $point;
+    border-radius: $point * 2;
+
+    & > svg {
+        flex: 0 0 $point * 5;
+        width: $point * 5;
+        height: $point * 5;
+    }
+}
+
+.small {
+    height: $point * 9.5;
+    padding: $point * 2.5 $point * 2.75;
+    border-radius: $point;
+
+    & > svg {
+        flex: 0 0 $point * 4;
+        width: $point * 4;
+        height: $point * 4;
+    }
+}
+
+// Colors
+.primary {
+    position: relative;
+    background-color: $blue500;
+    color: $white100;
+
+    &:active {
+        background-color: $blue600;
+    }
+
+    &:focus-visible {
+        background-color: $blue600;
+        outline: $point solid $blue600;
+    }
+
+    &:disabled {
+        cursor: default;
+        background: $blue50;
+        color: $gray200;
+    }
+
+    @media (any-hover: hover) {
+        &:hover:not(:disabled) {
+            background-color: $blue600;
+        }
+    }
+}
+
+.secondary {
+    background-color: $blue5p;
+    color: $blue500;
+
+    &:active {
+        background-color: $blue10p;
+    }
+
+    &:focus-visible {
+        background-color: $blue10p;
+        outline: $point solid $blue300;
+    }
+
+    &:disabled {
+        cursor: default;
+        background: $blue50;
+        color: $gray200;
+    }
+
+    @media (any-hover: hover) {
+        &:hover:not(:disabled) {
+            background-color: $blue10p;
+        }
+    }
+}

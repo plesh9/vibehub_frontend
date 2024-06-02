@@ -2,5 +2,38 @@
     "Locales": {
         "en": "Англійська",
         "ua": "Українська"
+    },
+    "Validation": {
+        "email": "Пошта",
+        "emailPlaceholder": "Введіть вашу пошту",
+        "emailRequired": "Пошта обов'язкова",
+        "emailInvalid": "Пошта невірна",
+        "password": "Пароль",
+        "passwordPlaceholder": "Введіть ваш пароль",
+        "passwordRequired": "Пароль обов'язковий",
+        "passwordMinLength": "Пароль повинен містити принаймні 8 символів",
+        "passwordMaxLength": "Пароль повинен містити не більше 20 символів",
+        "confirmPassword": "Підтвердіть пароль",
+        "confirmPasswordPlaceholder": "Підтвердіть ваш пароль",
+        "confirmPasswordRequired": "Підтвердження пароля обов'язкове",
+        "passwordsMustMatch": "Паролі повинні співпадати",
+        "invalidField": "Невірне поле"
+    },
+    "Register": {
+        "title": "Реєстрація",
+        "description": "Введіть ваші дані нижче, щоб створити обліковий запис",
+        "register": "Зареєструватися",
+        "alreadyHaveAccount": "Вже маєте обліковий запис?",
+        "login": "Увійти",
+        "success": "Ви успішно зареєструвались"
+    },
+    "Login": {
+        "title": "Вхід",
+        "description": "Введіть ваші дані нижче, щоб увійти в свій обліковий запис",
+        "login": "Увійти",
+        "forgotPassword": "Забули пароль?",
+        "noAccount": "Не маєте облікового запису?",
+        "register": "Зареєструватися",
+        "success": "Ви успішно увійшли"
     }
 }

@@ -23,7 +23,7 @@ body {
 
 body {
     overflow-x: hidden;
-    background-color: $white100;
+    background-color: $blue5p;
     font-size: $fontSize;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -54,29 +54,27 @@ textarea {
     width: 100%;
     padding: $point * 2.25 $point * 3.5;
     background-color: $white100;
-
-    // border: 1px solid $blue500;
-
+    border: 1px solid $black45p;
     border-radius: $point * 2;
     outline: none;
     box-shadow: 0 1px 2px 0 #1018280d;
 
     &::placeholder {
-        // color: $blue80p;
+        color: $black45p;
     }
 
     &:focus {
-        // outline: $point solid $violet100;
+        outline: $point solid $blue45p;
     }
 
     &.error_field {
         // background-color: $red50;
-        // border: 1px solid $red500;
-        // color: $red500;
+        border: 1px solid $red500;
+        color: $red500;
 
-        // &::placeholder {
-        //     color: $red500;
-        // }
+        &::placeholder {
+            color: $red500;
+        }
     }
 }
 
@@ -91,14 +89,14 @@ input {
         appearance: textfield;
     }
 
-    // &:-webkit-autofill,
-    // &:-webkit-autofill:hover,
-    // &:-webkit-autofill:focus,
-    // &:-webkit-autofill:active {
-    //     border: 1px solid $orange500 !important;
-    //     box-shadow: 0 0 0 1000px $white100 inset !important;
-    //     -webkit-text-fill-color: $blue500 !important;
-    // }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        border: 1px solid $black45p !important;
+        box-shadow: 0 0 0 1000px $white100 inset !important;
+        -webkit-text-fill-color: $black100 !important;
+    }
 }
 
 button {

@@ -2,5 +2,37 @@
     "Locales": {
         "en": "English",
         "ua": "Ukrainian"
+    },
+    "Validation": {
+        "email": "Email",
+        "emailPlaceholder": "Enter your email",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Email is invalid",
+        "password": "Password",
+        "passwordPlaceholder": "Enter your password",
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "passwordMaxLength": "Password must be at most 20 characters",
+        "confirmPassword": "Confirm password",
+        "confirmPasswordPlaceholder": "Confirm your password",
+        "confirmPasswordRequired": "Confirm password is required",
+        "passwordsMustMatch": "Passwords must match",
+        "invalidField": "Invalid field"
+    },
+    "Register": {
+        "title": "Registration",
+        "description": "Enter your details below to create an account",
+        "register": "Register",
+        "alreadyHaveAccount": "Already have an account?",
+        "login": "Login",
+        "success": "You have successfully registered"
+    },
+    "Login": {
+        "title": "Login",
+        "description": "Enter your details below to login your account",
+        "login": "Login",
+        "dontHaveAccount": "Don't have an account?",
+        "register": "Register",
+        "success": "You have successfully logged in"
     }
 }

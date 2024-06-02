@@ -1,0 +1,109 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    margin: auto;
+
+    &_layout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: $point * 8;
+        background-color: $blue5p;
+        transition: inherit;
+
+        .entered & {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .entering & {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .exiting & {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .exited & {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        @media (max-width: $screen-md) {
+            padding: 0;
+        }
+    }
+
+    &_content {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: 100%;
+        background-color: $white100;
+        border-radius: $point * 3;
+        box-shadow:
+            0 $point * 2 $point * 2 $point * -1 #1018280a,
+            0 $point * 5 $point * 6 $point * -1 #1018281a;
+        transition: inherit;
+
+        &.small {
+            max-width: $point * 100;
+        }
+
+        .entered & {
+            transform: scale(0.8);
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .entering & {
+            transform: scale(1);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .exiting & {
+            transform: scale(1);
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .exited & {
+            transform: scale(0.8);
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        @media (max-width: $screen-md) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            border-radius: 0;
+
+            &.small {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &_overflow {
+        @include flexVerticalSpace(6);
+        overflow-y: auto;
+        padding: $point * 8;
+
+        @media (max-width: $screen-md) {
+            width: 100%;
+        }
+    }
+}

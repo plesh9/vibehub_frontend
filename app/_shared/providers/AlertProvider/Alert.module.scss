@@ -1,0 +1,94 @@
+@import '/app/_shared/const/variables';
+
+.container {
+    @include flexVerticalSpace(2);
+    position: fixed;
+    z-index: 104;
+    right: $point * 8;
+    bottom: $point * 8;
+
+    @media (max-width: $screen-md) {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: $point * 100;
+        padding: $point * 4;
+    }
+}
+
+.main {
+    @include flexHorizontalSpace(3);
+    align-items: center;
+    width: 100 * $point;
+    padding: 4 * $point;
+    background-color: $white100;
+    border: 1px solid transparent;
+    border-color: $black45p;
+    border-radius: 2 * $point;
+    box-shadow: 0 0 19px -3px #0f172a14;
+    transition: all 0.3s ease;
+
+    &.hidden {
+        transform: translateX($point * 4);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &.opened {
+        animation: slide-right 0.3s ease 1;
+
+        @keyframes slide-right {
+            0% {
+                transform: translateX($point * 4);
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    &_block {
+        @include flexHorizontalSpace(1);
+        flex-grow: 1;
+        align-items: flex-start;
+
+        .loading & {
+            gap: $point * 4;
+        }
+    }
+
+    &_icon {
+        transform: translateY($point / 2);
+        flex-shrink: 0;
+        width: $point * 4;
+        height: $point * 4;
+
+        .success & {
+            color: $green500;
+        }
+
+        .error & {
+            color: $red500;
+        }
+    }
+
+    &_close {
+        flex: 0 0 $point * 5;
+        width: $point * 5;
+        height: $point * 5;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @media (max-width: $screen-md) {
+        width: 100%;
+    }
+}
