@@ -5,8 +5,7 @@ import NextTopLoader from 'nextjs-toploader'
 import { type ReactNode } from 'react'
 import type { LocaleType } from '@shared/const/locales'
 import getMessagesOnServerSide from '@shared/lib/getMessagesOnServerSide'
-import { getUserOnServerSide } from '@shared/lib/getUserOnServerSide'
-import { AlertProvider, ClientProvider, TranslationProvider } from '@shared/providers'
+import { AlertProvider, TranslationProvider } from '@shared/providers'
 import { UserInitializer } from '@shared/state'
 import '@app/_styles/global.scss'
 
@@ -25,17 +24,15 @@ interface Props {
 }
 
 const layout = async ({ children, params: { locale = 'en' } }: Props) => {
-    const userResponse = await getUserOnServerSide()
     const messages = await getMessagesOnServerSide(locale)
 
     return (
         <html lang={locale} suppressHydrationWarning>
             <body className={poppins.className}>
-                <NextTopLoader color='#f06848' shadow={false} showSpinner={false} />
-                <UserInitializer user={userResponse?.user} accessToken={userResponse?.accessToken} />
+                <NextTopLoader color='#2d9cdb' shadow={false} showSpinner={false} />
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <TranslationProvider />
-                    <ClientProvider>{children}</ClientProvider>
+                    <UserInitializer>{children}</UserInitializer>
                 </NextIntlClientProvider>
                 <AlertProvider />
             </body>

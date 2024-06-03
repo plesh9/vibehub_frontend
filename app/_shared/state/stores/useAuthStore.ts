@@ -3,6 +3,7 @@ import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import { authApi, type LoginInputType } from '@shared/api'
 import { userService } from '@shared/lib/services'
+import { handleError } from '@shared/lib/utils'
 import { getTranslations } from '@shared/providers'
 import { Alert } from './useAlertStore'
 
@@ -25,7 +26,7 @@ export const useAuthStore = create<UseAuthStoreType>()(
                         userService.setUser(data)
                         Alert('success', t('success'))
                     })
-                    .catch((err) => Alert('error', err.message))
+                    .catch(handleError)
                     .finally(() => setIsLoading(false))
             },
             register: (input, setIsLoading) => {
@@ -38,7 +39,7 @@ export const useAuthStore = create<UseAuthStoreType>()(
                         userService.setUser(data)
                         Alert('success', t('success'))
                     })
-                    .catch((err) => Alert('error', err.message))
+                    .catch(handleError)
                     .finally(() => setIsLoading(false))
             },
             logout: (setIsLoading) => {
@@ -46,7 +47,7 @@ export const useAuthStore = create<UseAuthStoreType>()(
                 authApi
                     .logout()
                     .then(() => userService.setUser(null))
-                    .catch((err) => Alert('error', err.message))
+                    .catch(handleError)
                     .finally(() => setIsLoading(false))
             }
         }),

@@ -1,4 +1,3 @@
-export * from './ClientProvider'
 export * from './AlertProvider'
 export * from './AuthProvider'
 export * from './UnAuthProvider'

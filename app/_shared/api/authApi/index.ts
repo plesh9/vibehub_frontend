@@ -1,17 +1,33 @@
 import axios from 'axios'
-import { $axiosClient } from '@shared/config'
-import { apiService } from '@shared/lib/services'
-import type { AuthApiType, LoginResponseType } from './types'
+import type { AxiosResponse } from 'axios'
+import { axiosClient } from '@shared/config'
+import { apiService, tokenService } from '@shared/lib/services'
+import type { UserDataType } from '@shared/state'
 
-const AUTH_URL = '/auth'
-
-export const authApi: AuthApiType = {
-    me: () => $axiosClient.get<LoginResponseType>(`${AUTH_URL}/me`),
-    meOnServerSide: () => fetch(`${apiService.getUrl(`${AUTH_URL}/me`)}`).then((data) => data.json()),
-    refresh: () => $axiosClient.get<LoginResponseType>(`${AUTH_URL}/refresh`),
-    login: (input) => axios.post<LoginResponseType>(apiService.getUrl(`${AUTH_URL}/login`), input),
-    register: (input) => axios.post<LoginResponseType>(apiService.getUrl(`${AUTH_URL}/register`), input),
-    logout: () => $axiosClient.get<void>(`${AUTH_URL}/logout`)
+export interface LoginResponseType {
+    accessToken: string
+    user: UserDataType
 }
 
-export * from './types'
+export interface LoginInputType {
+    email: string
+    password: string
+}
+
+export interface AuthApiType {
+    me: () => Promise<AxiosResponse<LoginResponseType>>
+    refresh: () => Promise<AxiosResponse<LoginResponseType>>
+    login: (input: LoginInputType) => Promise<AxiosResponse<LoginResponseType>>
+    register: (input: LoginInputType) => Promise<AxiosResponse<LoginResponseType>>
+    logout: () => Promise<AxiosResponse<void>>
+}
+
+export const AUTH_URL = '/auth'
+
+export const authApi: AuthApiType = {
+    me: () => axiosClient.get<LoginResponseType>(`${AUTH_URL}/me`),
+    refresh: () => axios.get<LoginResponseType>(apiService.getUrl(`${AUTH_URL}/refresh`), { withCredentials: true, headers: { Authorization: `Bearer ${tokenService.getToken()}` } }),
+    login: (input) => axios.post<LoginResponseType>(apiService.getUrl(`${AUTH_URL}/login`), input),
+    register: (input) => axios.post<LoginResponseType>(apiService.getUrl(`${AUTH_URL}/register`), input),
+    logout: () => axiosClient.get<void>(`${AUTH_URL}/logout`)
+}
