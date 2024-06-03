@@ -76,13 +76,12 @@ const page: FC = () => {
                     <Button loading={isLoading} type='submit' wide>
                         {t('Register.register')}
                     </Button>
-                    <Text align='center'>
+                    <Space direction='vertical' align='center' textAlign='center'>
                         {t('Register.alreadyHaveAccount')}
-                        <br />
-                        <Text as={Link} className='hover-underline' href={routes.login} color='blue500'>
+                        <Button as={Link} variant='link' href={routes.login}>
                             {t('Register.login')}
-                        </Text>
-                    </Text>
+                        </Button>
+                    </Space>
                 </Space>
             </Space>
         </Modal>

@@ -67,13 +67,12 @@ const page: FC = () => {
                     <Button loading={isLoading} type='submit' wide>
                         {t('Login.login')}
                     </Button>
-                    <Text align='center'>
+                    <Space direction='vertical' align='center' textAlign='center'>
                         {t('Login.dontHaveAccount')}
-                        <br />
-                        <Text as={Link} className='hover-underline' href={routes.register} color='blue500'>
+                        <Button as={Link} variant='link' href={routes.register}>
                             {t('Login.register')}
-                        </Text>
-                    </Text>
+                        </Button>
+                    </Space>
                 </Space>
             </Space>
         </Modal>

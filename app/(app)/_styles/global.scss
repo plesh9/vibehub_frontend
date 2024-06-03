@@ -8,12 +8,29 @@
     height: 2px;
 
     &-thumb {
-        background-color: $green500;
+        background-color: $blue500;
         border-radius: $point * 3;
     }
 
     &-track {
         background-color: transparent;
+    }
+}
+
+.sidebar-layout {
+    padding-left: $sidebarWidth;
+}
+
+.flex-layout {
+    @include flexVerticalSpace(8);
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100vw;
+    padding: 8 * $point;
+
+    @media (max-width: $screen-md) {
+        gap: $point * 6;
+        padding: $point * 4;
     }
 }
 
@@ -23,6 +40,10 @@
 }
 
 // Black
+.background_black10p {
+    background-color: $black10p;
+}
+
 .background_black45p {
     background-color: $black45p;
 }
@@ -52,6 +73,10 @@
 }
 
 // Black
+.color_black10p {
+    color: $black10p;
+}
+
 .color_black45p {
     color: $black45p;
 }

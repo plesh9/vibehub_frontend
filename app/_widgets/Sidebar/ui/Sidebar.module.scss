@@ -1,0 +1,14 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $sidebarWidth;
+    height: 100%;
+
+    &_content {
+        overflow: hidden auto;
+        border-right: 1px solid $black10p;
+    }
+}

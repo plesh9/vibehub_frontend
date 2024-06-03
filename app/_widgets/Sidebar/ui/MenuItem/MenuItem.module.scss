@@ -1,0 +1,56 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: $point * 10;
+    height: $point * 10;
+    border-radius: $point * 3;
+
+    &:not(.active) {
+        transition: all $transition;
+    }
+
+    &.primary {
+        color: $blue500;
+    }
+
+    &.secondary {
+        color: $black45p;
+    }
+
+    svg {
+        width: $point * 5;
+        height: $point * 5;
+    }
+
+    &.active {
+        &.primary {
+            background-color: $blue500;
+            color: $white100;
+        }
+
+        &.secondary {
+            background-color: $black5p;
+            color: $black100;
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+    }
+
+    @media (any-hover: hover) {
+        &:hover:not(.active) {
+            &.primary {
+                background-color: $blue10p;
+            }
+
+            &.secondary {
+                color: $black100;
+            }
+        }
+    }
+}

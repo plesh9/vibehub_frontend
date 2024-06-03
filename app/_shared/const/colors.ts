@@ -2,6 +2,7 @@ export const colors = {
     white100: 'white100',
 
     // Black
+    black10p: 'black10p',
     black45p: 'black45p',
     black100: 'black100',
 

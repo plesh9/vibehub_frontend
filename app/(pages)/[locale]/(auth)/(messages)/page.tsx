@@ -1,19 +1,8 @@
 'use client'
-import { useState, type FC } from 'react'
-import { useAuthStore } from '@shared/state'
-import Button from '@shared/ui/Button'
+import { type FC } from 'react'
 
 const page: FC = () => {
-    const [isExiting, setIsExiting] = useState(false)
-    const logout = useAuthStore((state) => state.logout)
-
-    return (
-        <div>
-            <Button onClick={() => logout(setIsExiting)} loading={isExiting}>
-                Logout
-            </Button>
-        </div>
-    )
+    return <div>Messages</div>
 }
 
 export default page

@@ -1,0 +1,57 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+
+    &.empty {
+        background-color: $blue500;
+        color: $white100;
+        text-transform: uppercase;
+    }
+
+    &.online {
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            transform: translate(-25%, -25%);
+            width: $point * 2;
+            height: $point * 2;
+            background-color: $green500;
+            border-radius: 50%;
+        }
+    }
+
+    & img {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: inherit;
+    }
+}
+
+@for $i from 1 through 100 {
+    .size#{$i} {
+        width: #{$i}px;
+        height: #{$i}px;
+        font-size: #{$i / 2}px;
+    }
+}
+
+@media (max-width: $screen-lg) {
+    @for $i from 1 through 100 {
+        .lg_size#{$i} {
+            width: #{$i}px;
+            height: #{$i}px;
+            font-size: #{$i / 2}px;
+        }
+    }
+}

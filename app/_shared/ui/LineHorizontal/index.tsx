@@ -8,7 +8,7 @@ interface Props {
     color?: ColorsType
 }
 
-const LineHorizontal: FC<Props> = ({ color = 'blue10p' }) => {
+const LineHorizontal: FC<Props> = ({ color = 'black10p' }) => {
     return <div className={classnames(s.main, `background_${color}`)} />
 }
 

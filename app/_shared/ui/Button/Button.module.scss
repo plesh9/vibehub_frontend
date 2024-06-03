@@ -94,3 +94,32 @@
         }
     }
 }
+
+.link {
+    width: fit-content;
+    height: auto;
+    padding: 0;
+    border-radius: $point;
+    font-weight: 400;
+    color: $blue500;
+
+    &:active {
+        color: $blue600;
+    }
+
+    &:focus-visible {
+        outline: $point solid $blue300;
+        color: $blue600;
+    }
+
+    &:disabled {
+        cursor: default;
+        color: $gray200;
+    }
+
+    @media (any-hover: hover) {
+        &:hover:not(:disabled) {
+            color: $blue600;
+        }
+    }
+}

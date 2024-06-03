@@ -1,9 +1,16 @@
+import { usePathname } from 'next/navigation'
 import type { LocaleType } from '@shared/const/locales'
 import { locales } from '@shared/const/locales'
 
-export const checkActiveLink = (fullPathname: string, href: string): boolean => {
+export const useActivePathname = (href?: string): boolean => {
+    const pathname = usePathname()
+
+    if (!href) {
+        return false
+    }
+
     const pathnameWithoutLang =
-        fullPathname
+        pathname
             .split('/')
             .filter((path) => !locales[path as LocaleType])
             .join('/') || '/'

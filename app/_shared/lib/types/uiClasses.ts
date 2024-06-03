@@ -41,7 +41,7 @@ export type UiType<T = BaseUiType, F = {}> = {
 } & (T & F)
 
 const isUiKey = (key: string): key is keyof BaseUiType => {
-    return ['w', 'maxW', 'h', 'radius', 'p', 'gap', 'direction', 'justify', 'align', 'wrap', 'display', 'cols', 'grow'].includes(key)
+    return ['w', 'maxW', 'h', 'radius', 'p', 'gap', 'direction', 'justify', 'align', 'wrap', 'display', 'cols', 'grow', 'textAlign'].includes(key)
 }
 
 const isBreakpointKey = (key: string): key is keyof UiType => {
