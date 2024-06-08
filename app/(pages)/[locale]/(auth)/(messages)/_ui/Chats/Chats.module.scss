@@ -1,0 +1,50 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    overflow: hidden;
+    display: flex;
+    flex: 0 0 $point * 85;
+    flex-direction: column;
+    background-color: $white100;
+    border-right: 1px solid $black10p;
+
+    &_header {
+        padding: $point * 6 $point * 6 $point * 3 $point * 6;
+    }
+
+    &_chats {
+        overflow-y: auto;
+        flex: 1 1 auto;
+    }
+}
+
+.chat {
+    @include flexHorizontalSpace(3);
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    padding: $point * 4 $point * 6;
+
+    &.active {
+        background-color: $black5p;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            width: $point;
+            height: 100%;
+            background-color: $blue500;
+        }
+    }
+
+    @media (any-hover: hover) {
+        transition: all $transition;
+
+        &:hover {
+            background-color: $black5p;
+        }
+    }
+}

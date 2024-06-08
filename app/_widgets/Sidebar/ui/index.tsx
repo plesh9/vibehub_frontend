@@ -20,8 +20,9 @@ export const Sidebar: FC = () => {
                     <Avatar alt={userData.name} url={userData.avatarUrl} size='40' />
                 </Link>
                 <LineHorizontal />
-                <Space direction='vertical' gap={1} grow>
+                <Space direction='vertical' gap={2} grow>
                     <MenuItem icon='message' href={routes.messages} />
+                    <MenuItem icon='users' href={routes.users} />
                 </Space>
                 <Footer />
             </Space>

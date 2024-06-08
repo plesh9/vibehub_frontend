@@ -1,0 +1,6 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    padding: $point * 3 $point * 6;
+    border-bottom: 1px solid $black10p;
+}

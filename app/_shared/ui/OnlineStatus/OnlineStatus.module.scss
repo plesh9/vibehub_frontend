@@ -1,0 +1,32 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    @include flexHorizontalSpace(1);
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+    white-space: nowrap;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        flex-shrink: 0;
+        width: $point * 1.5;
+        height: $point * 1.5;
+        background-color: currentcolor;
+        border-radius: 50%;
+    }
+
+    &.online {
+        color: $green500;
+    }
+
+    &.never {
+        color: $black45p;
+    }
+
+    &.date {
+        color: $orange500;
+    }
+}

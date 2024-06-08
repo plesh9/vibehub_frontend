@@ -8,13 +8,10 @@
     width: $point * 10;
     height: $point * 10;
     border-radius: $point * 3;
-
-    &:not(.active) {
-        transition: all $transition;
-    }
+    transition: all $transition;
 
     &.primary {
-        color: $blue500;
+        color: $black100;
     }
 
     &.secondary {
@@ -45,7 +42,7 @@
     @media (any-hover: hover) {
         &:hover:not(.active) {
             &.primary {
-                background-color: $blue10p;
+                background-color: $black5p;
             }
 
             &.secondary {

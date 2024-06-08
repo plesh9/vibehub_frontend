@@ -1,0 +1,10 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 1;
+}

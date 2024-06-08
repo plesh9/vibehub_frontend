@@ -30,9 +30,9 @@
 }
 
 .small {
-    height: $point * 9.5;
-    padding: $point * 2.5 $point * 2.75;
-    border-radius: $point;
+    height: $point * 10;
+    padding: $point * 3;
+    border-radius: $point * 2;
 
     & > svg {
         flex: 0 0 $point * 4;
@@ -120,6 +120,31 @@
     @media (any-hover: hover) {
         &:hover:not(:disabled) {
             color: $blue600;
+        }
+    }
+}
+
+.transparent {
+    background-color: transparent;
+    color: $black100;
+
+    &:active {
+        color: $black45p;
+    }
+
+    &:focus-visible {
+        outline: $point solid $blue300;
+        color: $blue600;
+    }
+
+    &:disabled {
+        cursor: default;
+        color: $gray200;
+    }
+
+    @media (any-hover: hover) {
+        &:hover:not(:disabled) {
+            color: $black45p;
         }
     }
 }

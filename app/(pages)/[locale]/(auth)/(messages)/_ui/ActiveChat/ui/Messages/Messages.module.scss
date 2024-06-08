@@ -1,0 +1,24 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    overflow-y: auto;
+    padding: $point * 6;
+    background-color: #fafafa;
+
+    &_container {
+        margin-top: auto;
+    }
+}
+
+.message {
+    width: fit-content;
+    padding: $point * 3 $point * 4;
+    background-color: #f4f4f7;
+    border-radius: $point * 3 $point * 3 $point * 3 0;
+    white-space: wrap;
+
+    &.my {
+        align-self: flex-end;
+        border-radius: $point * 3 $point * 3 0 $point * 3;
+    }
+}

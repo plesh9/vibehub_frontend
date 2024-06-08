@@ -8,7 +8,7 @@
     height: 2px;
 
     &-thumb {
-        background-color: $blue500;
+        background-color: $black10p;
         border-radius: $point * 3;
     }
 
@@ -18,6 +18,9 @@
 }
 
 .sidebar-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     padding-left: $sidebarWidth;
 }
 
@@ -25,7 +28,7 @@
     @include flexVerticalSpace(8);
     flex-grow: 1;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100dvw;
     padding: 8 * $point;
 
     @media (max-width: $screen-md) {
@@ -40,6 +43,10 @@
 }
 
 // Black
+.background_black5p {
+    background-color: $black5p;
+}
+
 .background_black10p {
     background-color: $black10p;
 }
@@ -73,6 +80,10 @@
 }
 
 // Black
+.color_black5p {
+    color: $black5p;
+}
+
 .color_black10p {
     color: $black10p;
 }

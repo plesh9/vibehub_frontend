@@ -23,7 +23,7 @@ body {
 
 body {
     overflow-x: hidden;
-    background-color: $blue5p;
+    background-color: $white100;
     font-size: $fontSize;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -41,7 +41,7 @@ textarea {
 
 textarea {
     resize: none;
-    min-height: $point * 25;
+    height: $point * 25;
 
     &::-webkit-scrollbar {
         width: 0;
@@ -52,9 +52,9 @@ textarea {
 input,
 textarea {
     width: 100%;
-    padding: $point * 2.25 $point * 3.5;
+    padding: $point * 2.301 $point * 3.5;
     background-color: $white100;
-    border: 1px solid $black45p;
+    border: 1px solid $black10p;
     border-radius: $point * 2;
     outline: none;
     box-shadow: 0 1px 2px 0 #1018280d;
@@ -93,7 +93,7 @@ input {
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-        border: 1px solid $black45p !important;
+        border: 1px solid $black10p !important;
         box-shadow: 0 0 0 1000px $white100 inset !important;
         -webkit-text-fill-color: $black100 !important;
     }
@@ -175,6 +175,7 @@ q::after {
 
 svg {
     display: block;
+    flex-shrink: 0;
 }
 
 g * {

@@ -7,12 +7,12 @@ export interface TitlePropsType extends TextPropsType {
 }
 
 const sizeMap = {
-    h1: '28',
-    h2: '24',
-    h3: '20',
-    h4: '18',
-    h5: '16',
-    h6: '14'
+    h1: '24',
+    h2: '20',
+    h3: '18',
+    h4: '16',
+    h5: '14',
+    h6: '12'
 } as const
 
 const lineHeightMap = {

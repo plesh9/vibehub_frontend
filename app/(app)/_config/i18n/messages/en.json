@@ -34,5 +34,17 @@
         "dontHaveAccount": "Don't have an account?",
         "register": "Register",
         "success": "You have successfully logged in"
+    },
+    "Messages": {
+        "title": "Messages",
+        "search": "Search",
+        "online": "Online",
+        "never": "Never",
+        "noChats": "No chats",
+        "createFirtsChat": "Create your first chat",
+        "noActiveChat": "No active chat",
+        "noMessages": "No messages",
+        "today": "Today",
+        "typeMessage": "Type your message..."
     }
 }

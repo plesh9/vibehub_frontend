@@ -11,7 +11,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input = forwardRef<HTMLInputElement, Props>(({ className, name, error, label, ...restProps }, ref) => {
     return (
-        <Space direction='vertical' className={className} gap='1'>
+        <Space direction='vertical' className={classnames('w100p', className)} gap='1'>
             {label && (
                 <Label color={error ? 'red500' : 'black100'} htmlFor={name}>
                     {label}

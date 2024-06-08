@@ -1,0 +1,25 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    position: relative;
+
+    &_icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $point * 10;
+        height: 100%;
+        color: $black100;
+    }
+
+    &_input {
+        width: 100%;
+        padding-right: $point * 10;
+        background-color: $black5p;
+        border-color: $black5p;
+
+        &::placeholder {
+            color: $black45p;
+        }
+    }
+}

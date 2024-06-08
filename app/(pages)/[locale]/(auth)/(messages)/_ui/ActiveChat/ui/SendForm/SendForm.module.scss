@@ -1,0 +1,48 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    padding: $point * 6;
+    border-top: 1px solid $black10p;
+
+    &_textarea {
+        & textarea {
+            height: $point * 10;
+        }
+    }
+}
+
+.emoji {
+    position: relative;
+
+    &_button {
+        position: relative;
+        z-index: 2;
+    }
+
+    &_picker {
+        pointer-events: none;
+        position: absolute;
+        right: calc(100% - $point * 10);
+        bottom: 0;
+        transform: translateX($point * 5);
+        padding-right: $point * 10;
+        visibility: hidden;
+        opacity: 0;
+        transition: all $transition;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:focus-within {
+        .emoji_button {
+            color: $black45p;
+        }
+
+        .emoji_picker {
+            pointer-events: auto;
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

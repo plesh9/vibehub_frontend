@@ -7,7 +7,7 @@ import s from './Button.module.scss'
 
 type ButtonElementType = 'a' | 'button' | 'div'
 type ButtonSizesType = 'large' | 'small'
-type ButtonVariantsType = 'primary' | 'secondary' | 'link'
+type ButtonVariantsType = 'primary' | 'secondary' | 'link' | 'transparent'
 type AdditionalButtonPropsType<T extends ButtonElementType | ComponentType<any>> = T extends keyof JSX.IntrinsicElements ? JSX.IntrinsicElements[T] : ComponentPropsWithoutRef<T>
 type Props<T extends ButtonElementType | ComponentType<any>> = {
     as?: T
@@ -31,7 +31,8 @@ export const buttonSizes: Record<ButtonSizesType, string> = {
 export const buttonVariants: Record<ButtonVariantsType, string> = {
     primary: s.primary,
     secondary: s.secondary,
-    link: s.link
+    link: s.link,
+    transparent: s.transparent
 }
 
 const Button = <T extends ButtonElementType | ComponentType<any> = 'button'>({ as, size = 'large', variant = 'primary', children, wide, disabled, loading, onClick, icon, reverse, className, type = 'button', ...restProps }: Props<T>) => {

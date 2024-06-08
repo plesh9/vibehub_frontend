@@ -1,5 +1,5 @@
-import { useTranslations } from 'next-intl'
 import type { ValidationRule } from 'react-hook-form'
+import { getTranslations } from '@shared/providers'
 
 interface ValidationServiceType {
     getEmailPattern: () => ValidationRule<RegExp>
@@ -8,7 +8,7 @@ interface ValidationServiceType {
 
 export const validationService: ValidationServiceType = {
     getEmailPattern: () => {
-        const t = useTranslations('Validation')
+        const t = getTranslations('Validation')
 
         return {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -16,7 +16,7 @@ export const validationService: ValidationServiceType = {
         }
     },
     notOnlySpaces: (value) => {
-        const t = useTranslations('Validation')
+        const t = getTranslations('Validation')
 
         return value.trim().length > 0 || t('invalidField')
     }

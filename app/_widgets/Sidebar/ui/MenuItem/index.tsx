@@ -14,11 +14,11 @@ interface Props {
     loading?: boolean
 }
 
-const MenuItem = withDynamicComponent<Props, typeof Link>(({ variant = 'primary', icon, as: Component = Link, href = '', loading, ...restProps }): JSX.Element => {
+const MenuItem = withDynamicComponent<Props, typeof Link>(({ variant = 'primary', icon, as: Component = Link, href, loading, ...restProps }): JSX.Element => {
     const isActive = useActivePathname(href)
 
     return (
-        <Component className={classnames(s.main, s[variant], isActive && s.active, loading && s.loading)} href={href} {...restProps}>
+        <Component className={classnames(s.main, s[variant], isActive && s.active, loading && s.loading)} href={href as string} {...restProps}>
             <Icon name={loading ? 'loading' : icon} />
         </Component>
     )
