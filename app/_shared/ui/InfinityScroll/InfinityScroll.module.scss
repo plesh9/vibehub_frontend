@@ -1,0 +1,21 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    position: relative;
+
+    &_trigger {
+        pointer-events: none;
+        position: absolute;
+        right: $point * 8;
+        bottom: $point * 8;
+        width: $point * 10;
+        height: $point * 10;
+        visibility: hidden;
+        opacity: 0;
+
+        .inverse & {
+            top: $point * 8;
+            bottom: auto;
+        }
+    }
+}

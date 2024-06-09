@@ -5,10 +5,12 @@ import type { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
 import { useAutosizeTextarea } from '@shared/lib/hooks'
 import { validationService } from '@shared/lib/services'
+import { useUserStore } from '@shared/state'
+import AttachWrapper from '@shared/ui/AttachWrapper'
 import Button from '@shared/ui/Button'
 import Space from '@shared/ui/Space'
 import Textarea from '@shared/ui/Textarea'
-import AttachWrapper from '../../../../../../../../_shared/ui/AttachWrapper'
+import { useChatsStore } from '../../../../_state'
 import s from './SendForm.module.scss'
 
 interface FormType {
@@ -17,9 +19,18 @@ interface FormType {
 
 const SendForm: FC = () => {
     const t = useTranslations('Messages')
-    const { register, handleSubmit, watch, getValues, setValue } = useForm<FormType>()
+    const userData = useUserStore((state) => state.userData!)
+    const activeChat = useChatsStore((state) => state.chats.find((chat) => chat.id === state.activeChatId)!)
+    const chatUser = activeChat.users.find((user) => user.id !== userData.id)!
+    const sendMessage = useChatsStore((state) => state.sendMessage)
+    const { register, handleSubmit, watch, getValues, setValue, reset } = useForm<FormType>()
     const textareaRef = useAutosizeTextarea(watch('message'))
-    const handleSubmitForm: SubmitHandler<FormType> = (data) => {}
+    const handleSubmitForm: SubmitHandler<FormType> = (data) =>
+        sendMessage({
+            chatId: activeChat.id,
+            toUserId: chatUser.id,
+            text: data.message
+        }).then(() => reset())
 
     return (
         <Space as='form' onSubmit={handleSubmit(handleSubmitForm)} className={s.main} direction='horizontal' align='end' gap={1}>

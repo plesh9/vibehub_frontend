@@ -1,13 +1,6 @@
 @import '/app/_shared/const/variables';
 
-.main {
-    @include flexHorizontalSpace(1);
-    align-items: center;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 100%;
-    white-space: nowrap;
-
+@mixin circle() {
     &::before {
         content: '';
         display: inline-block;
@@ -17,16 +10,27 @@
         background-color: currentcolor;
         border-radius: 50%;
     }
+}
+
+.main {
+    @include flexHorizontalSpace(1);
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+    white-space: nowrap;
 
     &.online {
+        @include circle;
         color: $green500;
     }
 
     &.never {
+        @include circle;
         color: $black45p;
     }
 
     &.date {
-        color: $orange500;
+        color: $black45p;
     }
 }

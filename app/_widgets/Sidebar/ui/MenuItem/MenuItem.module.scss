@@ -8,6 +8,7 @@
     width: $point * 10;
     height: $point * 10;
     border-radius: $point * 3;
+    font-weight: 500;
     transition: all $transition;
 
     &.primary {

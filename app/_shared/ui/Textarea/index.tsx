@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode, TextareaHTMLAttributes } from 'react'
+import type { ReactNode, TextareaHTMLAttributes } from 'react'
 import { forwardRef } from 'react'
 import classnames from '@shared/lib/classnames'
 import Text, { Label } from '@shared/ui/Typography'

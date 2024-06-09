@@ -1,29 +1,17 @@
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
 import classnames from '@shared/lib/classnames'
 import { formatToLocaleDate } from '@shared/lib/utils'
-import { getTranslations } from '@shared/providers'
 import s from './OnlineStatus.module.scss'
 
 interface Props {
-    online: 'online' | 'never' | string
-}
-
-const getOnline = (online: string) => {
-    const t = getTranslations('Messages')
-
-    if (online === 'online') {
-        return t('online')
-    } else if (online === 'never') {
-        return t('never')
-    } else {
-        return formatToLocaleDate(new Date(online)).replace(/AM|PM/gi, '').trim()
-    }
+    online: 'ONLINE' | string
 }
 
 const getOnlineClassName = (online: string) => {
-    if (online === 'online') {
+    if (online === 'ONLINE') {
         return s.online
-    } else if (online === 'never') {
+    } else if (!online || online === 'never') {
         return s.never
     } else {
         return s.date
@@ -31,7 +19,9 @@ const getOnlineClassName = (online: string) => {
 }
 
 const OnlineStatus: FC<Props> = ({ online }) => {
-    return <div className={classnames(s.main, getOnlineClassName(online))}>{getOnline(online)}</div>
+    const t = useTranslations('Messages')
+
+    return <div className={classnames(s.main, getOnlineClassName(online))}>{online === 'ONLINE' ? t('online') : t('lastOnlineAt') + ' ' + (online ? formatToLocaleDate(new Date(online)).replace(/AM|PM/gi, '').trim() : t('never'))}</div>
 }
 
 export default OnlineStatus

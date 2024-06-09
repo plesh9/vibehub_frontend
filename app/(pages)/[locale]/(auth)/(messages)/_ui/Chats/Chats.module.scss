@@ -23,6 +23,7 @@
     cursor: pointer;
     position: relative;
     align-items: center;
+    width: 100%;
     padding: $point * 4 $point * 6;
 
     &.active {
@@ -43,8 +44,8 @@
     @media (any-hover: hover) {
         transition: all $transition;
 
-        &:hover {
-            background-color: $black5p;
+        &:hover:not(.active) {
+            background-color: $black2p;
         }
     }
 }

@@ -1,0 +1,27 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    @include flexVerticalSpace(3);
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 5 * $point;
+    text-align: center;
+
+    &_box {
+        img {
+            margin: 0 auto $point;
+
+            @media (max-width: $screen-xxl) {
+                width: $point * 12;
+                height: $point * 12;
+            }
+        }
+    }
+
+    &_subtitle {
+        margin-top: $point;
+        color: $black45p;
+    }
+}

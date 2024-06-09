@@ -1,7 +1,13 @@
 {
     "Locales": {
-        "en": "English",
-        "ua": "Ukrainian"
+        "Long": {
+            "en": "English",
+            "ua": "Ukrainian"
+        },
+        "Short": {
+            "en": "EN",
+            "ua": "UA"
+        }
     },
     "Validation": {
         "email": "Email",
@@ -39,12 +45,33 @@
         "title": "Messages",
         "search": "Search",
         "online": "Online",
-        "never": "Never",
+        "lastOnlineAt": "Last online at -",
+        "never": "never",
         "noChats": "No chats",
+        "noChatsDescription": "You don't have any chats yet",
         "createFirtsChat": "Create your first chat",
         "noActiveChat": "No active chat",
+        "noActiveChatDescription": "Select a chat to start messaging",
         "noMessages": "No messages",
+        "noMessagesDescription": "You don't have any messages yet",
         "today": "Today",
         "typeMessage": "Type your message..."
+    },
+    "Users": {
+        "title": "Users",
+        "description": "Select a user to start messaging",
+        "noUsers": "No users",
+        "noUsersDescription": "There are no users yet",
+        "sendMessage": "Send message",
+        "SendModal": {
+            "title": "Send message to",
+            "description": "Enter your message below",
+            "message": "Message",
+            "messagePlaceholder": "Enter your message...",
+            "messageRequired": "Message is required",
+            "send": "Send",
+            "cancel": "Cancel",
+            "success": "Message has been sent"
+        }
     }
 }

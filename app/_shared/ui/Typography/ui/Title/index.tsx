@@ -16,10 +16,10 @@ const sizeMap = {
 } as const
 
 const lineHeightMap = {
-    h1: '100',
-    h2: '100',
-    h3: '100',
-    h4: '100',
+    h1: '120',
+    h2: '120',
+    h3: '120',
+    h4: '120',
     h5: '130',
     h6: '130'
 } as const

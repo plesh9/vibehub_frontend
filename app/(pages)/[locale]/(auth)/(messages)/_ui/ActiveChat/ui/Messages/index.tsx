@@ -1,47 +1,105 @@
-import type { FC } from 'react'
+import { useTranslations } from 'next-intl'
+import { Fragment, useLayoutEffect, useRef, type FC } from 'react'
 import classnames from '@shared/lib/classnames'
+import { useUserStore } from '@shared/state'
+import InfiniteScroll from '@shared/ui/InfinityScroll'
 import LineHorizontal from '@shared/ui/LineHorizontal'
+import Loader from '@shared/ui/Loader'
+import NoData from '@shared/ui/NoData'
 import ReadStatus from '@shared/ui/ReadStatus'
 import Space from '@shared/ui/Space'
 import Text from '@shared/ui/Typography'
 import { formatChatMessageDate } from '../../../../_lib/formatChatMessageDate'
 import { formatMessageDate } from '../../../../_lib/formatMessageDate'
+import { groupMessagesByDate } from '../../../../_lib/groupMessagesByDate'
+import { useChatsStore } from '../../../../_state'
 import s from './Messages.module.scss'
 
 const Messages: FC = () => {
+    const t = useTranslations('Messages')
+    const page = useRef(1)
+    const scrollRef = useRef<HTMLDivElement | null>(null)
+    const userData = useUserStore((state) => state.userData!)
+    const messages = useChatsStore((state) => state.messages)
+    const activeChatId = useChatsStore((state) => state.activeChatId!)
+    const fetchMessages = useChatsStore((state) => state.fetchMessages)
+    const hasMoreMessages = useChatsStore((state) => state.hasMoreMessages)
+    const messagesMoreIsLoading = useChatsStore((state) => state.messagesMoreIsLoading)
+    const messagesIsLoading = useChatsStore((state) => state.messagesIsLoading)
+
+    useLayoutEffect(() => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+        }
+    }, [messages])
+
+    if (messagesIsLoading) {
+        return <Loader />
+    }
+
+    if (!messages.length) {
+        return (
+            <div className={s.main} ref={scrollRef}>
+                <NoData title={t('noMessages')} subtitle={t('noMessagesDescription')} />
+            </div>
+        )
+    }
+
     return (
-        <Space className={s.main} direction='vertical' grow>
+        <div className={s.main} ref={scrollRef}>
             <Space className={s.main_container}>
-                <div className='scroll'>
+                <InfiniteScroll
+                    next={() => {
+                        const scrollDiv = scrollRef.current
+                        const prevHeight = scrollDiv?.scrollHeight ?? 0
+
+                        fetchMessages(activeChatId, ++page.current).then(() => {
+                            setTimeout(() => {
+                                const currentHeight = scrollRef.current?.scrollHeight ?? 0
+                                const newScrollTop = currentHeight - prevHeight
+
+                                if (scrollDiv) {
+                                    scrollDiv.scrollTop = newScrollTop
+                                }
+                            }, 0)
+                        })
+                    }}
+                    hasMore={hasMoreMessages}
+                    isLoading={messagesMoreIsLoading}
+                    inverse
+                >
                     <Space direction='vertical' gap={4}>
-                        <Space direction='horizontal' align='center' gap={6}>
-                            <LineHorizontal />
-                            <Text size='12' color='black45p' weight='500' noWrap>
-                                {formatMessageDate(new Date())}
-                            </Text>
-                            <LineHorizontal />
-                        </Space>
-                        <Space className={s.message} direction='vertical' gap={1}>
-                            <Text>Message</Text>
-                            <Space direction='horizontal' justify='end' align='center' gap={2}>
-                                <Text size='12' lineHeight='100' color='black45p'>
-                                    {formatChatMessageDate(new Date())}
-                                </Text>
-                            </Space>
-                        </Space>
-                        <Space className={classnames(s.message, s.my)} direction='vertical' gap={1}>
-                            <Text>Message message</Text>
-                            <Space direction='horizontal' justify='end' align='center' gap={2}>
-                                <Text size='12' lineHeight='100' color='black45p'>
-                                    {formatChatMessageDate(new Date())}
-                                </Text>
-                                <ReadStatus isRead />
-                            </Space>
-                        </Space>
+                        {messagesMoreIsLoading && <Loader />}
+                        {Object.entries(groupMessagesByDate(messages)).map(([date, groupedMessages]) => (
+                            <Fragment key={date}>
+                                <Space direction='horizontal' align='center' gap={6}>
+                                    <LineHorizontal />
+                                    <Text size='12' color='black45p' weight='500' noWrap>
+                                        {formatMessageDate(new Date(date))}
+                                    </Text>
+                                    <LineHorizontal />
+                                </Space>
+                                {groupedMessages.map((message) => {
+                                    const isMyMessage = message.user.id === userData.id
+
+                                    return (
+                                        <Space className={classnames(s.message, isMyMessage && s.my)} direction='vertical' gap={1} key={message.id}>
+                                            <Text>{message.text}</Text>
+                                            <Space direction='horizontal' justify='end' align='center' gap={2}>
+                                                <Text size='12' lineHeight='100' color='black45p'>
+                                                    {formatChatMessageDate(new Date(message.createdAt))}
+                                                </Text>
+                                                {isMyMessage && <ReadStatus isRead />}
+                                            </Space>
+                                        </Space>
+                                    )
+                                })}
+                            </Fragment>
+                        ))}
                     </Space>
-                </div>
+                </InfiniteScroll>
             </Space>
-        </Space>
+        </div>
     )
 }
 

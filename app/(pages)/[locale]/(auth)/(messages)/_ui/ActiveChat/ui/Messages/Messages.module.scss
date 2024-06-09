@@ -2,6 +2,9 @@
 
 .main {
     overflow-y: auto;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
     padding: $point * 6;
     background-color: #fafafa;
 
@@ -15,7 +18,7 @@
     padding: $point * 3 $point * 4;
     background-color: #f4f4f7;
     border-radius: $point * 3 $point * 3 $point * 3 0;
-    white-space: wrap;
+    white-space: pre-wrap;
 
     &.my {
         align-self: flex-end;

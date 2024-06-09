@@ -6,9 +6,9 @@ export interface UserDataType {
     email: string
     name: string
     avatarUrl: string
-    createdAt: Date
-    updatedAt: Date
-    lastOnlineAt: Date
+    createdAt: string
+    updatedAt: string
+    lastOnlineAt: string
 }
 
 interface UseUserStoreType {
