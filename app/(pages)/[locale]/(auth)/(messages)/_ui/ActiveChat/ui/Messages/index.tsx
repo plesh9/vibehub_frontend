@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { Fragment, useLayoutEffect, useRef, type FC } from 'react'
+import type { MessageType } from '@shared/api'
 import classnames from '@shared/lib/classnames'
 import { useUserStore } from '@shared/state'
 import InfiniteScroll from '@shared/ui/InfinityScroll'
@@ -70,7 +71,7 @@ const Messages: FC = () => {
                 >
                     <Space direction='vertical' gap={4}>
                         {messagesMoreIsLoading && <Loader />}
-                        {Object.entries(groupMessagesByDate(messages)).map(([date, groupedMessages]) => (
+                        {Object.entries(groupMessagesByDate(messages)).map(([date, groupedMessages]: [string, Array<MessageType>]) => (
                             <Fragment key={date}>
                                 <Space direction='horizontal' align='center' gap={6}>
                                     <LineHorizontal />
