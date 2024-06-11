@@ -29,6 +29,14 @@ const page: FC = () => {
 
     useEffect(() => {
         fetchChats()
+
+        return () => {
+            useChatsStore.setState({
+                chats: [],
+                messages: [],
+                activeChatId: null
+            })
+        }
     }, [fetchChats])
 
     useEffect(() => {

@@ -14,6 +14,7 @@ import Space from '@shared/ui/Space'
 
 interface FormType {
     email: string
+    name: string
     password: string
     confirmPassword: string
 }
@@ -44,6 +45,12 @@ const page: FC = () => {
                             placeholder={t('Validation.emailPlaceholder')}
                             error={errors.email?.message}
                             type='email'
+                        />
+                        <Input
+                            {...register('name', { required: t('Validation.nameRequired'), minLength: { value: 3, message: t('Validation.nameMinLength') }, validate: validationService.notOnlySpaces })}
+                            label={t('Validation.name')}
+                            placeholder={t('Validation.namePlaceholder')}
+                            error={errors.name?.message}
                         />
                         <PasswordInput
                             {...register('password', {
