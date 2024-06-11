@@ -32,7 +32,7 @@ const Messages: FC = () => {
         if (scrollRef.current) {
             scrollRef.current.scrollTop = scrollRef.current.scrollHeight
         }
-    }, [messages])
+    }, [messages, messagesIsLoading])
 
     if (messagesIsLoading) {
         return (
