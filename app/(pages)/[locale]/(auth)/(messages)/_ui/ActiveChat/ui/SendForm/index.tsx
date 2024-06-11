@@ -27,6 +27,8 @@ const SendForm: FC = () => {
     const { register, handleSubmit, watch, getValues, setValue, reset } = useForm<FormType>()
     const textareaRef = useAutosizeTextarea(watch('message'))
     const handleSubmitForm: SubmitHandler<FormType> = (data) => {
+        if (isSending) return
+
         setIsSending(true)
         sendMessage({
             chatId: activeChat.id,

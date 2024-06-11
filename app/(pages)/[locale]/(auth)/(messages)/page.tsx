@@ -33,8 +33,7 @@ const page: FC = () => {
         return () => {
             useChatsStore.setState({
                 chats: [],
-                messages: [],
-                activeChatId: null
+                messages: []
             })
         }
     }, [fetchChats])

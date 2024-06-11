@@ -35,7 +35,11 @@ const Messages: FC = () => {
     }, [messages])
 
     if (messagesIsLoading) {
-        return <Loader />
+        return (
+            <div className={s.main} ref={scrollRef}>
+                <Loader />
+            </div>
+        )
     }
 
     if (!messages.length) {
