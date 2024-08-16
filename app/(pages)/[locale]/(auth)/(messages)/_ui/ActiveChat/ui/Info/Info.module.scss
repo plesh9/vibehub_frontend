@@ -3,4 +3,8 @@
 .main {
     padding: $point * 3 $point * 6;
     border-bottom: 1px solid $black10p;
+
+    @media (max-width: $screen-lg) {
+        padding: $point * 3 $point * 4;
+    }
 }

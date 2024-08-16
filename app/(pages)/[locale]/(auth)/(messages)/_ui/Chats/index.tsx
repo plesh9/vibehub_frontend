@@ -26,9 +26,10 @@ const Chats: FC = () => {
     const fetchChats = useChatsStore((state) => () => state.fetchChats(++page.current))
     const chatsMoreIsLoading = useChatsStore((state) => state.chatsMoreIsLoading)
     const hasMoreChats = useChatsStore((state) => state.hasMoreChats)
+    const activeChat = useChatsStore((state) => state.chats.find((chat) => chat.id === state.activeChatId))
 
     return (
-        <Space className={s.main} gap={3} grow>
+        <Space className={classnames(s.main, !activeChat && s.open)} gap={3} grow>
             <Space className={s.main_header} direction='vertical' gap={4}>
                 <Title>{t('title')}</Title>
                 <Search value={search} setValue={setSearch} />

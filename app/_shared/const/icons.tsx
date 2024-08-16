@@ -160,6 +160,18 @@ export const icons = {
                 strokeLinejoin='round'
             />
         </svg>
+    ),
+    'arrow-back': (props: SVGProps<SVGSVGElement>) => (
+        <svg width='16' height='16' viewBox='0 0 24 24' fill='none' {...props} xmlns='http://www.w3.org/2000/svg'>
+            <path d='M11 6L5 12M5 12L11 18M5 12H19' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+        </svg>
+    ),
+    burger: (props: SVGProps<SVGSVGElement>) => (
+        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' {...props} xmlns='http://www.w3.org/2000/svg'>
+            <path d='M5 12H20' stroke='currentColor' stroke-width='2' stroke-linecap='round' />
+            <path d='M5 17H20' stroke='currentColor' stroke-width='2' stroke-linecap='round' />
+            <path d='M5 7H20' stroke='currentColor' stroke-width='2' stroke-linecap='round' />
+        </svg>
     )
 } as const
 export type IconsType = keyof typeof icons

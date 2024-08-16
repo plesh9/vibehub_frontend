@@ -76,30 +76,30 @@ const Messages: FC = () => {
                     <Space direction='vertical' gap={4}>
                         {messagesMoreIsLoading && <Loader />}
                         {Object.entries(groupMessagesByDate(messages)).map(([date, groupedMessages]: [string, Array<MessageType>]) => (
-                            <Fragment key={date}>
-                                <Space direction='horizontal' align='center' gap={6}>
-                                    <LineHorizontal />
-                                    <Text size='12' color='black45p' weight='500' noWrap>
+                            <Space direction='vertical' key={date}>
+                                <Space className={s.date} direction='horizontal' justify='center' align='center' gap={6}>
+                                    <Text size='12' color='black100' noWrap>
                                         {formatMessageDate(new Date(date))}
                                     </Text>
-                                    <LineHorizontal />
                                 </Space>
-                                {groupedMessages.map((message) => {
-                                    const isMyMessage = message.user.id === userData.id
+                                <Space direction='vertical' gap={4} key={date}>
+                                    {groupedMessages.map((message) => {
+                                        const isMyMessage = message.user.id === userData.id
 
-                                    return (
-                                        <Space className={classnames(s.message, isMyMessage && s.my)} direction='vertical' gap={1} key={message.id}>
-                                            <Text>{message.text}</Text>
-                                            <Space direction='horizontal' justify='end' align='center' gap={2}>
-                                                <Text size='12' lineHeight='100' color='black45p'>
-                                                    {formatChatMessageDate(new Date(message.createdAt))}
-                                                </Text>
-                                                {isMyMessage && <ReadStatus isRead />}
+                                        return (
+                                            <Space className={classnames(s.message, isMyMessage && s.my)} direction='vertical' gap={1} key={message.id}>
+                                                <Text>{message.text}</Text>
+                                                <Space direction='horizontal' justify='end' align='center' gap={2}>
+                                                    <Text size='12' lineHeight='100' color='black45p'>
+                                                        {formatChatMessageDate(new Date(message.createdAt))}
+                                                    </Text>
+                                                    {isMyMessage && <ReadStatus isRead />}
+                                                </Space>
                                             </Space>
-                                        </Space>
-                                    )
-                                })}
-                            </Fragment>
+                                        )
+                                    })}
+                                </Space>
+                            </Space>
                         ))}
                     </Space>
                 </InfiniteScroll>

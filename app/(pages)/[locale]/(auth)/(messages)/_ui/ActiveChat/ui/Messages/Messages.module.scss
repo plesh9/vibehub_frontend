@@ -11,6 +11,21 @@
     &_container {
         margin-top: auto;
     }
+
+    @media (max-width: $screen-lg) {
+        padding: $point * 4;
+    }
+}
+
+.date {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: fit-content;
+    margin: auto;
+    padding: $point * 0.5 $point * 3;
+    background-color: #dcdcdc;
+    border-radius: $point * 3;
 }
 
 .message {

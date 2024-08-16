@@ -26,6 +26,7 @@ const SendForm: FC = () => {
     const [isSending, setIsSending] = useState(false)
     const { register, handleSubmit, watch, getValues, setValue, reset } = useForm<FormType>()
     const textareaRef = useAutosizeTextarea(watch('message'))
+
     const handleSubmitForm: SubmitHandler<FormType> = (data) => {
         if (isSending) return
 

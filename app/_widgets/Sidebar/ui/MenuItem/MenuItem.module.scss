@@ -2,11 +2,7 @@
 
 .main {
     display: flex;
-    flex-shrink: 0;
     align-items: center;
-    justify-content: center;
-    width: $point * 10;
-    height: $point * 10;
     border-radius: $point * 3;
     font-weight: 500;
     transition: all $transition;
@@ -51,4 +47,13 @@
             }
         }
     }
+}
+
+.icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: $point * 10;
+    height: $point * 10;
 }

@@ -34,5 +34,10 @@
     --orange500: #f2994a;
 
     // sizes
+    --headerHeight: 72px;
     --sidebarWidth: 65px;
+
+    @media (max-width: $screen-lg) {
+        --sidebarWidth: 100%;
+    }
 }

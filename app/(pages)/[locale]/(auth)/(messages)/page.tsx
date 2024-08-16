@@ -21,7 +21,6 @@ const page: FC = () => {
     const fetchChats = useChatsStore((state) => state.fetchChats)
     const fetchMessages = useChatsStore((state) => state.fetchMessages)
     const activeChatId = useChatsStore((state) => state.activeChatId!)
-    const activeChat = useChatsStore((state) => state.chats.find((chat) => chat.id === activeChatId))
     const addMessage = useChatsStore((state) => state.addMessage)
     const socket = useWebsocketStore((state) => state.socket)
     const onlineUserIds = useOnlineUsers((state) => state.onlineUserIds)
@@ -93,7 +92,7 @@ const page: FC = () => {
     return (
         <Space className={s.main} direction='horizontal' grow>
             <Chats />
-            {!!activeChat ? <ActiveChat /> : <NoData title={t('noActiveChat')} subtitle={t('noActiveChatDescription')} />}
+            <ActiveChat />
         </Space>
     )
 }

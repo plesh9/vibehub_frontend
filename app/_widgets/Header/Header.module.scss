@@ -1,0 +1,12 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    position: fixed;
+    z-index: 52;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $headerHeight;
+    background-color: $white100;
+    border-bottom: 1px solid var(--black10p);
+}

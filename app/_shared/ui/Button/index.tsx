@@ -40,7 +40,7 @@ const Button = <T extends ButtonElementType | ComponentType<any> = 'button'>({ a
 
     return (
         <Component onClick={onClick} disabled={loading || disabled} className={classnames(s.main, buttonSizes[size], buttonVariants[variant], wide && s.wide, reverse && 'reverse', className)} type={type} {...restProps}>
-            {icon && !loading && <Icon name={icon} />}
+            {icon && !loading && <Icon className={s.icon} name={icon} />}
             {loading && <Spinner />}
             {children}
         </Component>

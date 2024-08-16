@@ -9,6 +9,16 @@
             "ua": "UA"
         }
     },
+    "PageLoader": {
+        "description": "The first request to the backend can take up to 5 minutes to load, please wait..."
+    },
+    "Sidebar": {
+        "messages": "Messages",
+        "users": "Users",
+        "language": "Switch Language",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
     "Validation": {
         "email": "Email",
         "emailPlaceholder": "Enter your email",

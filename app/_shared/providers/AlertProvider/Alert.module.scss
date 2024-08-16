@@ -13,6 +13,12 @@
         width: 100%;
         max-width: $point * 100;
         padding: $point * 4;
+
+        &.empty {
+            right: $point * 4;
+            bottom: $point * 4;
+            padding: 0;
+        }
     }
 }
 

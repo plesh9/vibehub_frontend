@@ -22,7 +22,7 @@
     padding: 3 * $point 5 * $point;
     border-radius: $point * 2;
 
-    & > svg {
+    & > .icon {
         flex: 0 0 $point * 5;
         width: $point * 5;
         height: $point * 5;
@@ -34,7 +34,7 @@
     padding: $point * 3;
     border-radius: $point * 2;
 
-    & > svg {
+    & > .icon {
         flex: 0 0 $point * 4;
         width: $point * 4;
         height: $point * 4;

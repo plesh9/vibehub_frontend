@@ -12,7 +12,7 @@ export const AlertProvider: FC = () => {
     const popups = useAlertStore((state) => state.popups)
 
     return (
-        <div className={s.container} id='alert-container'>
+        <div className={classnames(s.container, !popups.length && s.empty)} id='alert-container'>
             {popups.map((item, index) => (
                 <AlertComponent key={index} popup={item} />
             ))}

@@ -54,7 +54,7 @@ const page: FC = () => {
 
     return (
         <>
-            <Space direction='horizontal' justify='between' align='center' gap={4}>
+            <Space direction='horizontal' justify='between' align='center' gap={4} md={{ direction: 'vertical', align: 'start' }}>
                 <Space direction='vertical' gap={1} grow>
                     <Title>{t('title')}</Title>
                     <Text color='black45p'>{t('description')}</Text>
@@ -74,7 +74,12 @@ const page: FC = () => {
                                     </Text>
                                     <OnlineStatus online={user.lastOnlineAt} />
                                 </Space>
-                                <Button onClick={() => useUsersStore.setState({ modalData: { isOpen: true, user } })}>{t('sendMessage')}</Button>
+                                <Space display='block' md={{ display: 'none' }}>
+                                    <Button onClick={() => useUsersStore.setState({ modalData: { isOpen: true, user } })}>{t('sendMessage')}</Button>
+                                </Space>
+                                <Space display='none' md={{ display: 'block' }}>
+                                    <Button onClick={() => useUsersStore.setState({ modalData: { isOpen: true, user } })} icon='send' size='small' />
+                                </Space>
                             </Space>
                         ))}
                     </Space>

@@ -10,7 +10,7 @@ import { Alert } from './useAlertStore'
 export interface UseAuthStoreType {
     login: (input: LoginInputType, setIsLoading: Dispatch<SetStateAction<boolean>>) => void
     register: (variables: LoginInputType, setIsLoading: Dispatch<SetStateAction<boolean>>) => void
-    logout: (setIsLoading: Dispatch<SetStateAction<boolean>>) => void
+    logout: (setIsLoading: Dispatch<SetStateAction<boolean>>) => Promise<void>
 }
 
 export const useAuthStore = create<UseAuthStoreType>()(
@@ -44,7 +44,8 @@ export const useAuthStore = create<UseAuthStoreType>()(
             },
             logout: (setIsLoading) => {
                 setIsLoading(true)
-                authApi
+
+                return authApi
                     .logout()
                     .then(() => userService.setUser(null))
                     .catch(handleError)

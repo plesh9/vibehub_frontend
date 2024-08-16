@@ -5,7 +5,7 @@ import classnames from '@shared/lib/classnames'
 import s from './Text.module.scss'
 
 export type TextWeightType = '400' | '500' | '600' | '700'
-export type TextSizeType = '12' | '14' | '16' | '18' | '20' | '22' | '24' | '26' | '28' | '32' | '52' | '64'
+export type TextSizeType = '10' | '12' | '14' | '16' | '18' | '20' | '22' | '24' | '26' | '28' | '32' | '52' | '64'
 export type TextAlignType = 'center' | 'left' | 'right'
 export type TextLineHeightType = '100' | '110' | '120' | '130' | '140' | '150'
 export interface TextPropsType {

@@ -1,5 +1,11 @@
 @import '/app/_shared/const/variables';
 
 .main {
+    position: relative;
+    overflow: hidden;
     height: 100dvh;
+
+    @media (max-width: $screen-lg) {
+        height: 100%;
+    }
 }
