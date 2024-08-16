@@ -1,0 +1,45 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    position: relative;
+
+    &_button {
+        position: relative;
+        z-index: 2;
+    }
+
+    &_picker {
+        pointer-events: none;
+        position: absolute;
+        right: calc(100% - $point * 10);
+        bottom: 0;
+        margin: 0 $point * -5 0 0;
+        padding-right: $point * 10;
+        visibility: hidden;
+        opacity: 0;
+        transition: all $transition;
+
+        @media (max-width: $screen-sm) {
+            position: fixed;
+            z-index: 3;
+            right: 50%;
+            bottom: $point * 21;
+            transform: translateX(50%);
+            margin: 0 0 $point * -5 0;
+            padding: 0;
+        }
+    }
+
+    &.open {
+        .main_button {
+            color: $black45p;
+        }
+
+        .main_picker {
+            pointer-events: auto;
+            margin: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

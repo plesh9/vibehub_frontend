@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import { useState, type FC } from 'react'
 import type { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
+import classnames from '@shared/lib/classnames'
 import { useAutosizeTextarea } from '@shared/lib/hooks'
 import { validationService } from '@shared/lib/services'
 import { useUserStore } from '@shared/state'
@@ -11,6 +12,7 @@ import Button from '@shared/ui/Button'
 import Space from '@shared/ui/Space'
 import Textarea from '@shared/ui/Textarea'
 import { useChatsStore } from '../../../../_state'
+import EmojiButton from '../EmojiButton'
 import s from './SendForm.module.scss'
 
 interface FormType {
@@ -57,15 +59,10 @@ const SendForm: FC = () => {
                 className={s.main_textarea}
                 placeholder={t('typeMessage')}
             />
-            <div className={s.emoji}>
-                <Button className={s.emoji_button} icon='smile' variant='transparent' size='small' />
-                <div className={s.emoji_picker}>
-                    <EmojiPicker onEmojiClick={(e) => setValue('message', getValues('message') + e.emoji)} />
-                </div>
-            </div>
-            <AttachWrapper onUpload={(e) => {}}>
+            <EmojiButton onEmojiClick={(e) => setValue('message', getValues('message') + e.emoji)} />
+            {/* <AttachWrapper onUpload={(e) => {}}>
                 <Button as='div' icon='attach' variant='transparent' size='small' />
-            </AttachWrapper>
+            </AttachWrapper> */}
             <Button type='submit' icon='send' size='small' loading={isSending} />
         </Space>
     )
