@@ -5,6 +5,7 @@ import classnames from '@shared/lib/classnames'
 import { useUserStore } from '@shared/state'
 import InfiniteScroll from '@shared/ui/InfinityScroll'
 import LineHorizontal from '@shared/ui/LineHorizontal'
+import LinkifyText from '@shared/ui/LinkifyText'
 import Loader from '@shared/ui/Loader'
 import NoData from '@shared/ui/NoData'
 import ReadStatus from '@shared/ui/ReadStatus'
@@ -88,7 +89,9 @@ const Messages: FC = () => {
 
                                         return (
                                             <Space className={classnames(s.message, isMyMessage && s.my)} direction='vertical' gap={1} key={message.id}>
-                                                <Text>{message.text}</Text>
+                                                <Text>
+                                                    <LinkifyText className='color_blue500 hover-underline'>{message.text}</LinkifyText>
+                                                </Text>
                                                 <Space direction='horizontal' justify='end' align='center' gap={2}>
                                                     <Text size='12' lineHeight='100' color='black45p'>
                                                         {formatChatMessageDate(new Date(message.createdAt))}
