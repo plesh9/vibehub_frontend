@@ -13,12 +13,13 @@ import s from './Info.module.scss'
 const Info: FC = () => {
     const userData = useUserStore((state) => state.userData!)
     const activeChat = useChatsStore((state) => state.chats.find((chat) => chat.id === state.activeChatId)!)
+    const setActiveChatId = useChatsStore((state) => state.setActiveChatId)
     const chatUser = activeChat.users.find((user) => user.id !== userData.id)!
 
     return (
         <Space className={s.main} direction='horizontal' align='center' gap={3}>
             <Space display='none' lg={{ display: 'block' }}>
-                <Button onClick={() => useChatsStore.setState({ activeChatId: '' })} variant='transparent' size='small' icon='arrow-back' />
+                <Button onClick={() => setActiveChatId('')} variant='transparent' size='small' icon='arrow-back' />
             </Space>
             <Avatar url={chatUser.avatarUrl} alt={chatUser.name} />
             <Space direction='vertical' gap={1} grow>

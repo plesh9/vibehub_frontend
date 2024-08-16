@@ -17,18 +17,16 @@ export const Sidebar: FC = () => {
     const t = useTranslations('Sidebar')
     const userData = useUserStore((state) => state.userData!)
     const isOpenOnMobile = useSidebarSrore((state) => state.isOpenOnMobile)
-    const closeOnMobile = useSidebarSrore((state) => state.closeOnMobile)
 
     return (
         <Space className={classnames(s.main, isOpenOnMobile && s.isOpenOnMobile)} direction='vertical'>
             <Space className={s.main_content} direction='vertical' gap={4} p={3} grow>
-                <Space direction='horizontal' gap={4} align='center' justify='between'>
-                    <Link className='hover-opacity' href={routes.messages} onClick={closeOnMobile}>
+                <Space direction='horizontal' gap={4} align='center' justify='between' lg={{ display: 'none' }}>
+                    <Link className='hover-opacity' href={routes.messages}>
                         <Avatar alt={userData.name} url={userData.avatarUrl} size='40' />
                     </Link>
-                    <Button onClick={closeOnMobile} variant='transparent' size='small' icon='close' />
+                    <LineHorizontal />
                 </Space>
-                <LineHorizontal />
                 <Space direction='vertical' gap={2} grow>
                     <MenuItem icon='message' title={t('messages')} href={routes.messages} />
                     <MenuItem icon='users' title={t('users')} href={routes.users} />

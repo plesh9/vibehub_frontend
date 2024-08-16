@@ -1,4 +1,5 @@
 :root {
+    --white60p: rgb(255 255 255 / 60%);
     --white100: #fff;
 
     // black
@@ -34,7 +35,7 @@
     --orange500: #f2994a;
 
     // sizes
-    --headerHeight: 72px;
+    --headerHeight: 65px;
     --sidebarWidth: 65px;
 
     @media (max-width: $screen-lg) {

@@ -1,0 +1,44 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    overflow-x: auto;
+    gap: $point * 3.195;
+
+    @media (max-width: $screen-sm) {
+        gap: $point * 0.695;
+    }
+}
+
+.tab {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: $point * 8;
+    height: $point * 8;
+    border-radius: $point * 2;
+    color: $black45p;
+    transition: all $transition;
+
+    &:disabled {
+        cursor: initial;
+        opacity: 0.8;
+    }
+
+    &.active:not(:disabled) {
+        background-color: $black5p;
+        color: $black100;
+    }
+
+    & svg {
+        width: $point * 5;
+        height: $point * 5;
+    }
+
+    @media (any-hover: hover) {
+        &:hover:not(:disabled) {
+            color: $black100;
+        }
+    }
+}

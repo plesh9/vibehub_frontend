@@ -15,7 +15,9 @@
 
     @media (max-width: $screen-lg) {
         z-index: 52;
+        top: $headerHeight;
         transform: translateX(50%);
+        height: calc(100% - $headerHeight);
         visibility: hidden;
         opacity: 0;
         transition: all $transition;

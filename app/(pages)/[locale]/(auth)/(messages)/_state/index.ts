@@ -9,6 +9,7 @@ export const MESSAGES_PAGE_LIMIT = 52
 
 interface UseChatsStoreType {
     activeChatId: string | null
+    setActiveChatId: (chatId: string) => void
     chats: Array<ChatType>
     messages: Array<MessageType>
     hasMoreChats: boolean
@@ -27,6 +28,10 @@ export const useChatsStore = create<UseChatsStoreType>()(
     devtools(
         (set, get) => ({
             activeChatId: typeof localStorage !== 'undefined' ? localStorage.getItem('activeChatId') : null,
+            setActiveChatId: (chatId) => {
+                set({ activeChatId: chatId })
+                chatId ? localStorage.setItem('activeChatId', chatId) : localStorage.removeItem('activeChatId')
+            },
             chats: [],
             messages: [],
             hasMoreChats: false,

@@ -5,6 +5,7 @@ interface UseSidebarSroreType {
     isOpenOnMobile: boolean
     openOnMobile: () => void
     closeOnMobile: () => void
+    toggleOnMobile: () => void
 }
 
 export const useSidebarSrore = create<UseSidebarSroreType>()(
@@ -12,7 +13,8 @@ export const useSidebarSrore = create<UseSidebarSroreType>()(
         (set) => ({
             isOpenOnMobile: false,
             openOnMobile: () => set({ isOpenOnMobile: true }),
-            closeOnMobile: () => set({ isOpenOnMobile: false })
+            closeOnMobile: () => set({ isOpenOnMobile: false }),
+            toggleOnMobile: () => set((state) => ({ isOpenOnMobile: !state.isOpenOnMobile }))
         }),
         { name: 'useSidebarSrore' }
     )

@@ -23,3 +23,4 @@ export const filterBySearch = <T extends Record<string, any>>(array: Array<T>, s
 
 export * from './handleError'
 export * from './date'
+export * from './debounce'

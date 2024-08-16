@@ -1,0 +1,50 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    overflow: hidden;
+    border-radius: 0 0 $point * 2 $point * 2;
+}
+
+.container {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-height: 100%;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    padding: $point * 4 $point * 4 $point * 3 $point * 4;
+    background-color: $white60p;
+    backdrop-filter: blur($point);
+}
+
+.emojies {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: $point;
+    padding: 0 $point * 4 $point * 4 $point * 4;
+
+    @media (max-width: $screen-sm) {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+.emoji {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $point * 8;
+    height: $point * 8;
+    border-radius: $point * 2;
+    font-size: 20px;
+    transition: background-color $transition;
+
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: $black5p;
+        }
+    }
+}

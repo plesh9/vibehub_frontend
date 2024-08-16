@@ -1,0 +1,9 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    padding: $point * 4 $point * 4 0 $point * 4;
+
+    .search {
+        width: 100%;
+    }
+}

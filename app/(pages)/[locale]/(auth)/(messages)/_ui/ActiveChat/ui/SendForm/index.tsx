@@ -1,4 +1,3 @@
-import EmojiPicker from 'emoji-picker-react'
 import { useTranslations } from 'next-intl'
 import { useState, type FC } from 'react'
 import type { SubmitHandler } from 'react-hook-form'

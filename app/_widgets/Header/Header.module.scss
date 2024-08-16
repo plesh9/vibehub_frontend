@@ -7,6 +7,28 @@
     left: 0;
     width: 100%;
     height: $headerHeight;
+    padding: $point * 3 $point * 4;
     background-color: $white100;
     border-bottom: 1px solid var(--black10p);
+
+    .burger {
+        width: $point * 10;
+        padding: 0;
+
+        svg {
+            flex: $point * 6;
+            width: $point * 6;
+            height: $point * 6;
+        }
+    }
+
+    &.sidebarIsOpen {
+        .burger {
+            svg {
+                flex: $point * 4;
+                width: $point * 4;
+                height: $point * 4;
+            }
+        }
+    }
 }

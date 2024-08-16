@@ -1,0 +1,14 @@
+@import '/app/_shared/const/variables';
+
+.main {
+    width: $point * 106;
+    height: $point * 125;
+    background-color: $white100;
+    border: 1px solid $black5p;
+    border-radius: $point * 2;
+    box-shadow: 0 10px 15px -3px #0f172a14;
+
+    @media (max-width: $screen-sm) {
+        width: $point * 86;
+    }
+}

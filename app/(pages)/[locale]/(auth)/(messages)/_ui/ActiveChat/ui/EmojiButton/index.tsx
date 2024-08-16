@@ -1,13 +1,13 @@
-import type { EmojiClickData } from 'emoji-picker-react'
-import EmojiPicker from 'emoji-picker-react'
-import { useRef, useState, type FC } from 'react'
+import { useState, type FC } from 'react'
 import classnames from '@shared/lib/classnames'
 import { useClickOutside } from '@shared/lib/hooks'
 import Button from '@shared/ui/Button'
+import type { EmojiType } from '@shared/ui/EmojiPicker'
+import EmojiPicker from '@shared/ui/EmojiPicker'
 import s from './EmojiButton.module.scss'
 
 interface Props {
-    onEmojiClick: (e: EmojiClickData) => void
+    onEmojiClick: (e: EmojiType) => void
 }
 
 const EmojiButton: FC<Props> = ({ onEmojiClick }) => {
