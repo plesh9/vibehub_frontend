@@ -28,6 +28,9 @@ const layout = async ({ children, params: { locale = 'en' } }: Props) => {
 
     return (
         <html lang={locale} suppressHydrationWarning>
+            <head>
+                <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' />
+            </head>
             <body className={poppins.className}>
                 <NextTopLoader color='#2d9cdb' shadow={false} showSpinner={false} />
                 <NextIntlClientProvider locale={locale} messages={messages}>
